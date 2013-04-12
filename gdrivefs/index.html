@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-hant">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Google Drive Filesystem</title>
+    <meta name="author" content="BYVoid" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <link href="css/impress-demo.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>你的瀏覽器<b>不支持</b>impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+    <div id="frontpage" class="step slide" data-x="-1000" data-y="-1500">
+        <q>Google Drive Filesystem</q>
+        <p class="right"><img src="Google_Drive_Logo.jpg" width="30%" height="30%"></p>
+        <q><a href="https://github.com/BYVoid/gdrive" target="_blank">https://github.com/BYVoid/gdrive</a></q>
+    </div>
+    
+    <div id="google-drive" class="step slide" data-x="-1000" data-y="-500">
+        <q>Google Drive</q>
+        <p>Google在2012年5月推出了雲存儲產品，向用戶免費提供25GB的空間。用戶除了在網頁上瀏覽文件之外，還提可以使用Windows版與Mac版的客戶端。</p>
+        <p class="right"><img src="Google_Drive_Logo.jpg" width="30%" height="30%"></p>
+    </div>
+
+    <div id="google-drive-arch" class="step slide" data-x="-1000" data-y="500">
+        <q>Google Drive</q>
+        <p>事實上Google在多年以前就已經有了類似的產品：Google Docs。Google Drive可以認爲是Google Docs的升級，它在Google Docs的基礎上加強了文件組織管理功能，並提供了用於同步的本地客戶端。</p>
+        <p>Google Drive的工作方式與Dropbox相同，它會把雲端的所有文件同步到本地硬盤的某個目錄，然後它會監視該目錄中的所有改動，同步到雲端。</p>
+    </div>
+
+    <div id="google-drive-filesystem" class="step slide" data-x="0" data-y="-1500" data-rotate="90">
+        <q>Google Drive Filesystem</q>
+        <p>Google Drive Filesystem，簡稱GDriveFS，是一個基於Fuse的用戶態文件系統。</p>
+        <p>Fuse（Filesystem in Userspace）是一個Linux操作系統下的用戶態文件系統開發平臺，相應的Mac平臺有Fuse4x的移植。</p>
+    </div>
+    
+    <div id="gdrivefs-arch" class="step slide" data-x="0" data-y="-500" data-rotate="90">
+        <q>GDriveFS</q>
+        <p>GDriveFS的工作原理與Google Drive客戶端有很大不同。GDriveFS不會將雲端文件都同步到本地，而祗是獲取元數據（Metadata），當系統真正發出讀請求時纔會從雲端下載文件的內容，並放入緩存。</p>
+    </div>
+
+    <div id="gdrivefs-use" class="step slide" data-x="0" data-y="500" data-rotate="90">
+        <q>GDriveFS有什麼用？</q>
+        <p>當你臨時使用一臺電腦的時候，突然想要訪問Google Drive中的數據，嫌網頁客戶端過於簡陋，又不想等待本地客戶端漫長的初次同步。這時候GDriveFS可以幫助你解決燃眉之急。</p>
+        <p>迄今爲止Google Drive還沒有推出Linux版客戶端的計劃，因此熱愛Linux的Geek用戶可以使用它。</p>
+    </div>
+    
+    <div id="gdrivefs-usage" class="step slide" data-x="0" data-y="1500" data-z="0" data-rotate-x="-90">
+        <q>如何使用GDriveFS</q>
+        <p>首先，你需要安裝libcurl、libxml2以及libfuse（Mac上是fuse4x），接下來編譯GdriveFS的代碼。</p>
+        <p>接下來運行./gdrivefs /mnt/gdrivefs --email=email --password="pwd"</p>
+        <p>即可在/mnt/gdrivefs下通過文件系統接口訪問。</p>
+    </div>
+    
+    <div id="gdrivefs-interfaces" class="step slide" data-x="-500" data-y="1000" data-z="0" data-rotate-x="-90" data-rotate-y="-90">
+        <q>目前已經實現的文件系統接口有</q>
+        <ul>
+          <li>getattr</li>
+          <li>open</li>
+          <li>read</li>
+          <li>readdir</li>
+          <li>rename</li>
+          <li>mkdir</li>
+          <li>unlink</li>
+          <li>rmdir</li>
+        </ul>
+    </div>
+    
+    <div id="gdrivefs-futures" class="step slide" data-x="0" data-y="500" data-z="0" data-rotate-x="-90" data-rotate-y="-180">
+        <q>下一步的工作是</q>
+        <p>實現create、write。</p>
+        <p>增加本地文件緩存（現在所有緩存都在內存中）。</p>
+        <p>測試、打包、開發圖形用戶界面，向用戶推廣。</p>
+    </div>
+    
+    <div id="this" class="step" data-x="0" data-y="0" data-z="1000" data-scale="5">
+        <span style="font-size: 4em">這就是</span>
+        <span style="font-size: 5em; text-align: center">GDriveFS</span>
+    </div>
+
+    <div id="github" class="step" data-x="0" data-y="0" data-z="-3000" data-rotate="0" data-scale="1">
+        <p>Fork me on GitHub</p>
+        <p><a href="https://github.com/BYVoid/gdrive" target="_blank">https://github.com/BYVoid/gdrive</a></p>
+    </div>
+
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    </div>
+
+    <div id="thanks" class="step" data-x="3000" data-y="2000" data-scale="10">
+      <p>謝謝大家</p>
+      <p class="right">郭家寶 2012.6.8</p>
+    </div>
+
+</div>
+
+
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+
+
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>
