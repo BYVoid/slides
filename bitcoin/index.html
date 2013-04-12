@@ -43,14 +43,14 @@ Derived from Google IO 2012/2013 HTML5 Slide Template
     </hgroup>
     <article>
       <ul>
-        <li>一種虛擬的貨幣</li>
-        <li>通過計算數學問題來產生貨幣</li>
+        <li>一種虛擬貨幣</li>
         <li>沒有中央發行機構</li>
         <li>基於點對點的分佈式系統，完全去中心化</li>
         <li>匿名交易，所有者難以追蹤</li>
         <li>無限可分而不會流失價值</li>
         <li>產生與2009年，創始人Satoshi Nakamoto(中本 聰)</li>
       </ul>
+      <aside style="float:right"><img src="bitcoin-coin.jpg"></aside>
     </article>
   </slide>
 
@@ -114,20 +114,120 @@ Derived from Google IO 2012/2013 HTML5 Slide Template
     <article>
       <ul>
         <li>
-          一個沒有銀行的貨幣是如何記錄金錢所有者的？
+          <span class="yellow3">一個沒有銀行的貨幣是如何記錄金錢所有者的？</span>
           <ul>
             <li>P2P網絡上每個節點都記錄了比特幣誕生以來所有的交易記錄</li>
             <li>通過交易記錄可以計算出每個人有多少比特幣</li>
           </ul>
         </li>
         <li>
-          賬戶和交易是？
+          <span class="green">賬戶之間的交易是如何進行的？</span>
           <ul>
-            <li>P2P網絡上每個節點都記錄了比特幣誕生以來所有的交易記錄</li>
-            <li>通過交易記錄可以計算出每個人有多少比特幣</li>
+            <li>每個賬戶就是一對非對稱密鑰，公鑰就是賬戶的地址，私鑰是所有權的證明</li>
+            <li>如果A付給B一筆錢，A需要把錢上加上B的公鑰，並用自己的密鑰簽名</li>
+            <li>交易要成功必須有額外的擔保人，當B從足夠多的其他人確認，纔認爲收到了</li>
+          </ul>
+        </li>
+        <li>
+          <span class="red2">如何避免錢被花兩次？</span>
+          <ul>
+            <li>整個賬單歷史是一個塊狀鏈表，被稱爲區塊鏈(blockchain)</li>
+            <li>每個區塊(block)裏面有若干賬單的散列簽名，並且鏈接到上一個區塊</li>
+            <li>製造新的區塊的過程被稱爲挖礦(mining)，就是把賬單打包到區塊中的過程</li>
+            <li>區塊只是一條鏈，不可以分岔，只有最優的區塊纔能被加入區塊鏈</li>
           </ul>
         </li>
       <ul>
+    </article>
+    <aside class="note">
+      <section>
+        <ul>
+          <li><a href="http://blog.codingnow.com/2011/05/bitcoin.html" target="_blank">Bitcoin 的基本原理</a></li>
+        </ul>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>比特幣是如何運行的</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>
+          <span class="yellow3">誰來產生區塊？</span>
+          <ul>
+            <li>製造區塊費時費力，但每個製造出區塊的人可以獲得獎勵</li>
+            <li>成功製造出區塊的人被獎勵獲得一定數量的比特幣，比特幣就是這樣產生的</li>
+          </ul>
+        </li>
+        <li>
+          <span class="green">區塊散列簽名如何產生？</span>
+          <ul>
+            <li>通過<a href="http://en.wikipedia.org/wiki/Hashcash" target="_blank">Hashcash</a>算法實現工作量證明</li>
+            <li>爲希望證明工作量的信息加上一串數字，使用某種散列算法計算出散列值</li>
+            <li>如果散列值有一串0爲開頭，那麼就成功了，0的個數決定了難度</li>
+            <li>這種算法已經被證明除了暴利嘗試以外沒有更好的方法</li>
+          </ul>
+        </li>
+        <li>
+          <span class="red2">產生區塊的難度和獎勵如何設置？</span>
+          <ul>
+            <li>P2P網絡根據區塊生成的速度自動調節難度</li>
+            <li>每個區塊獎勵最初50比特幣，每210000個區塊後減半，最終趨於0</li>
+            <li>比特幣的總量最終將會是2100萬</li>
+            <li>當生成區塊不再獎勵以後，通過交易稅可以繼續刺激挖礦</li>
+          </ul>
+        </li>
+      <ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>現實中的比特幣</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>比特幣只能通過在交易所或兌換商手中買入或兌現，價格由供求決定</li>
+        <li>全球有幾十家交易所，其中最大的是日本的<a href="https://mtgox.com/" target="_blank">MtGox</a>，中國有<a href="https://btcchina.com/" target="_blank">BTCChina</a></li>
+        <li><a href="https://blockchian.info/" target="_blank">Blockchian.info</a>提供了比特幣存管服務，可以將自己的賬戶委託於之保管</li>
+        <li><a href="https://www.bitinstant.com/" target="_blank">BitInstant</a>是一家致力於通過比特幣實現線下支付的公司</li>
+        <li><a href="https://bips.me/" target="_blank">BIPS</a>是一家電子貨幣兌換商，支持不同電子貨幣於比特幣直接的兌換</li>
+      </ul>
+      <img src="mtgox.png">
+      <img src="tradehill.jpg">
+      <img src="bips.png">
+      <img src="bitinstant.png">
+      <img src="blockchain.png">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>比特幣的經濟特點</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>不依賴信用擔保</li>
+        <li>交易不可追蹤</li>
+        <li>交易成本極低，不用納稅</li>
+        <li>內生的通貨緊縮</li>
+        <li>全球化市場</li>
+        <li>不與現有信用貨幣（如美元）掛鉤</li>
+        <li>交易所之間有價差，爲投機者創造了套利空間</li>
+        <li>無中央發行機構，受到自由意志主義者與無政府主義者的青睞</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>比特幣交易市場價格波動</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="price.png">
+      <footer class="source">source: BTCChina</footer>
     </article>
   </slide>
 
@@ -137,145 +237,22 @@ Derived from Google IO 2012/2013 HTML5 Slide Template
     </hgroup>
     <article>
       <ul>
-        <li>價值不穩定，易於投機</li>
-        <li>逃稅洗錢</li>
-        <li>龐氏騙局</li>
+        <li>內生通貨緊縮，導致投機性強</li>
+        <li>價格波動太大，無法作爲貨幣使用</li>
+        <li>匿名交易，無法對比特幣交易徵稅，助長洗錢和非法物品交易</li>
+        <li></li>
+        <li>初始財富分配不公，早期加入者獲利太大</li>
+        <li>新型龐氏騙局</li>
       </ul>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Slide with Image (Centered horz/vert)</h2>
-    </hgroup>
-    <article class="flexbox vcenter">
-      <img src="../images/barchart.png" alt="Description" title="Description">
-      <footer class="source">source: place source info here</footer>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Table Option A</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article>
-      <table>
-        <tr>
-          <th></th><th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 4</th>
-        </tr>
-        <tr>
-          <td>Row 1</td><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 2</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 3</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 4</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 5</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-      </table>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Table Option A (Smaller Text)</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article class="smaller">
-      <table>
-        <tr>
-          <th></th><th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 4</th>
-        </tr>
-        <tr>
-          <td>Row 1</td><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 2</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 3</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 4</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 5</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-      </table>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Table Option B</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article>
-      <table class="rows">
-        <tr>
-          <th>Header 1</th><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 2</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 3</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 4</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 5</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-      </table>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Slide Styles</h2>
-    </hgroup>
-    <article class="smaller">
-      <div class="columns-2">
-        <ul>
-          <li class="red">class="red"</li>
-          <li class="red2">class="red2"</li>
-          <li class="red3">class="red3"</li>
-          <li class="blue">class="blue"</li>
-          <li class="blue2">class="blue2"</li>
-          <li class="blue3">class="blue3"</li>
-          <li class="green">class="green"</li>
-          <li class="green2">class="green2"</li>
-        </ul>
-        <ul>
-          <li class="green3">class="green3"</li>
-          <li class="yellow">class="yellow"</li>
-          <li class="yellow2">class="yellow2"</li>
-          <li class="yellow3">class="yellow3"</li>
-          <li class="gray">class="gray"</li>
-          <li class="gray2">class="gray2"</li>
-          <li class="gray3">class="gray3"</li>
-          <li class="gray4">class="gray4"</li>
-        </ul>
-      </div>
-      <div class="centered" style="margin-top:2em">
-        I am centered text with a <button>Button</button> and <button disabled>Disabled</button> button.
-      </div>
+      <aside style="float:right"><img src="bitcoin-cash.jpg"></aside>
     </article>
   </slide>
 
   <slide class="segue dark nobackground">
     <aside class="gdbar"><img src="bitcoin_logo_2.png"></aside>
     <hgroup class="auto-fadein">
-      <h2>Segue Slide</h2>
-      <h3>Subtitle Placeholder</h3>
+      <h2>比特幣會改變世界嘛？</h2>
+      <h3>我相信它會，讓我們拭目以待</h3>
     </hgroup>
   </slide>
 
@@ -283,12 +260,8 @@ Derived from Google IO 2012/2013 HTML5 Slide Template
     <aside class="gdbar right bottom"><img src="bitcoin_logo_2.png"></aside>
     <article class="flexbox vleft auto-fadein">
       <q>
-        This is an example of quote text.
+        無論你是否注意到了，新的時代已經來臨
       </q>
-      <div class="author">
-        Name<br>
-        Company
-      </div>
     </article>
   </slide>
 
