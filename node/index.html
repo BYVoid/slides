@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Presentation</title>
+  <meta charset='utf-8'>
+  <script src='slides.js'></script>
+</head>
+<body style='display: none'>
+  <section class='slides layout-regular template-default'>
+    <article class="biglogo">
+      <h2>
+        A Brief Introduction
+        <br>
+        <small>
+          郭家寶 (BYVoid)
+        </small>
+      </h2>
+    </article>
+    
+    <article>
+      <h3>關於我</h3>
+      <ul>
+        <li>
+          郭家寶/Carbo Kuo/BYVoid
+          <img src="images/byvoid.png" style="position:absolute;top:50px;right:50px;width:150px;height:150px">
+        </li>
+        <li>清華大學計算機系本科生，現在大三</li>
+        <li>
+          《Node.js開發指南》作者
+          <a href="http://www.byvoid.com/project/node/" target="_blank">
+            <img src="images/nodeguide.jpg" style="position:absolute;top:230px;right:50px;width:185px;height:240px">
+          </a>
+        </li>
+        <li><a href="http://mirrors.tuna.tsinghua.edu.cn/" target="_blank">清華大學開源鏡像</a>維護者之一</li>
+        <li>語言學愛好者，簡化字反對者</li>
+        <li>我的網站 <a href="http://www.byvoid.com" target="_blank">www.byvoid.com</a></li>
+      </ul>
+    </article>
+    
+    <article>
+      <h3>Node.js是什麼</h3>
+      <ul>
+        <li>一個重新定義了JavaScript的平臺</li>
+        <li>一個打通了Web前端與後端開發隔膜的技術</li>
+        <li>一個完全基於事件驅動、非阻塞I/O的架構</li>
+      </ul>
+      <p>總而言之，Node.js是一個讓JavaScript運行在瀏覽器之外的工具。</p>
+    </article>
+    
+    <article>
+      <h3>JavaScript是什麼</h3>
+      <p>在過去，JavaScript因爲其運行效率低下和兼容性差而廣受詬病</p>
+      <p>而今天，它卻是運行最快的腳本語言之一，而且無處不見，擁有「Web時代的彙編語言」之稱</p>
+      <p>它是如何誕生的？</p>
+    </article>
+      
+    <article>
+      <h3>Netscape與LiveScript</h3>
+      <p>這還要追溯到互聯網泡沫時代的<strong>Netscape</strong>公司</p>
+      <p>1995年，Netscape爲了使網頁更有動感，發明了<strong>LiveScript</strong></p>
+      <p>同時，如日中天的Sun公司也在不遺餘力地推廣着<strong>Java Applet</strong></p>
+      <p>在市場部門的干預之下，LiveScript就改名JavaScript了</p>
+    </article>
+    
+    <article>
+      <h3>Java……Script?</h3>
+      <p>對外行來說，這個名字有着嚴重的誤導作用</p>
+      <p>儘管在StackOverflow上有人說「<strong>Java和JavaScript的關係，就像Car和Carpet的關係一樣</strong>]</p>
+      <p>我們還是可以看到這樣的景象：</p>
+      <p>
+        <img src="images/baiduzhidao.jpg">
+      </p>
+    </article>
+    
+    <article>
+      <h3>JavaScript到底是什麼</h3>
+      <p>正如混亂的瀏覽器兼容性問題一樣，JavaScript這個名字本身的含義就存在爭議：</p>
+      <div>
+        <p>《JavaScript: The Definitive Guide》認爲，JavaScript = <strong>ECMAScript + DOM + BOM</strong></p>
+        <p>Mozilla則指出，JavaScript = <strong>Core JavaScript + Client JavaScript</strong></p>
+      </div>
+    </article>
+    
+    <article>
+      <h3>Node.js與JavaScript</h3>
+      <p>Node.js = <strong>Core JavaScript + Node Standard Library</strong></p>
+      <p>沒有瀏覽器兼容性問題</p>
+      <p>基於世界上最快的JavaScript引擎——<strong>V8</strong></p>
+      <p>Node.js標準庫包含了<strong>模塊引入</strong>、<strong>包管理</strong>、<strong>文件系統</strong>、<strong>網絡通信</strong>、<strong>操作系統API</strong>等核心JavaScript沒有實現的功能</p>
+      <p>Node.js使JavaScript不再是腳本語言世界的二等公民</p>
+    </article>
+
+    <article>
+      <h3>Hello World</h3>
+      <pre><code>var http = require('http');
+http.createServer(function(req, res) {
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  res.write('&lt;h1&gt;Node.js&lt;/h1&gt;');
+  res.end('&lt;p&gt;Hello World&lt;/p&gt;');
+}).listen(3000);</code></pre>
+      <img src="images/http_server.png" style="width:450px">
+    </article>
+
+    <article>
+      <h3>Node.js REPL</h3>
+      <p>Node.js提供了和Python類似的<strong>REPL(Read-Evaluation-Print-Loop)</strong>環境：</p>
+      <pre><code>$ node
+> for (var i = 0; i < 5; i++) {
+... console.log('Hello ' + i);
+... }
+Hello 0
+Hello 1
+Hello 2
+Hello 3
+Hello 4
+undefined</code></pre>
+    </article>
+
+    <article>
+      <h3>模塊機制</h3>
+      <p><strong>模塊(Module)</strong>是Node.js的基本組成部分，一個文件就是一個模塊</p>
+      <p>模塊可以是JavaScript代碼文件、JSON文件，或者編譯過的C++擴展</p>
+      <p>使用<code>require</code>函數可以加載一個模塊。</p>
+      <pre><code>var http = require('http');
+var os = require('os');
+var fs = require('fs');
+var vm = require('vm');
+var child_process = require('child_process');
+</code></pre>
+    </article>
+
+    <article>
+      <h3>本地模塊</h3>
+      <p>創建<code>module.js</code>，通過<code>exports</code>對象定義接口：</p>
+      <pre><code>var name;
+exports.setName = function(thyName) {
+  name = thyName;
+};
+exports.sayHello = function() {
+  console.log('Hello ' + name);
+};
+</code></pre>
+      <p>另一個文件中：</p>
+      <pre><code>var myModule = require('./module');
+myModule.setName('BYVoid');
+myModule.sayHello(); // Hello BYVoid
+</code></pre>
+    </article>
+
+    <article>
+      <h3>Node.js包管理器 (npm)</h3>
+      <p>獲取一個包，例如安裝<code>express</code>：</p>
+      <pre><code>$ npm install express
+express@3.0.3 node_modules/express
+├── fresh@0.1.0
+├── methods@0.0.1
+├── range-parser@0.0.4
+├── cookie-signature@0.0.1
+├── cookie@0.0.5
+├── crc@0.2.0
+├── commander@0.6.1
+├── debug@0.7.0
+├── mkdirp@0.3.3
+├── send@0.1.0 (mime@1.2.6)
+└── connect@2.7.0 (pause@0.0.1, bytes@0.1.0, formidable@1.0.11, qs@0.5.1)
+</code></pre>
+    </article>
+
+    <article>
+      <h3>本地模式與全局模式</h3>
+      <p>npm默認使用本地模式，即將包安裝到<code>node_modules</code>目錄中，而使用全局模式會將包安裝到系統目錄。</p>
+      <p>使用全局模式安裝一個包：</p>
+      <pre><code>$ npm install -g less</code></pre>
+      <table class="small">
+      <tr><th>模式</th>
+      <th>可通過<code>require</code>使用</th>
+      <th>可以在命令行中使用</th>
+      </tr>
+      <tr><td>本地模式</td>
+      <td>是</td>
+      <td>否</td>
+      </tr>
+      <tr><td>全局模式</td>
+      <td>否</td>
+      <td>是</td>
+      </tr>
+      </table>
+    </article>
+      
+    <article>
+      <h3>異步I/O與事件式編程</h3>
+      <p>
+        如果Node.js僅僅是爲JavaScript包裝了一層運行時環境，它絕對沒有今天這麼火。
+        <strong>異步I/O</strong>與<strong>事件式編程模型</strong>纔是Node.js最大的特點。
+      </p>
+      <p>同步I/O</p>
+      <pre><code>res = db.query('SELECT * from some_table');
+res.output();</code></pre>
+      <p>異步I/O</p>
+      <pre><code>db.query('SELECT * from some_table', function(res) {
+  res.output();
+});</code></pre>
+    </article>
+    
+    <article>
+      <h3>同步與異步</h3>
+      <p>
+        程序執行I/O操作通常要花費很長時間，長達數十萬到數億個CPU指令週期。
+        因此操作系統和CPU通過<strong>中斷</strong>實現了異步的調度方式。
+      </p>
+      <p>
+        進程發起I/O請求時，操作系統會掛起進程，將CPU自由讓給其他工作的進程。
+        當I/O完成以後，操作系統會使進程繼續執行。
+        這種請求方式稱爲<strong>同步I/O</strong>或<strong>阻塞式I/O</strong>。
+      </p>
+    </article>
+    
+    <article>
+      <h3>異步I/O與事件機制</h3>
+      <p>
+        <strong>異步I/O</strong>又叫<strong>非阻塞I/O</strong>。
+        指的是進程發起I/O請求以後就繼續執行其他指令，通過其他手段來獲得請求完成的通知。
+      </p>
+      <p>
+        「其他手段」可能是定期輪詢（如select），也可能是<strong>事件機制</strong>。
+        使用事件機制時，整個程序是一個<strong>事件循環</strong>，不斷檢查並執行<strong>事件隊列</strong>中尚未處理的事件。
+      </p>
+    </article>
+    
+    <article>
+      <h3>事件與回調函數</h3>
+      <p>
+        當非阻塞的I/O發起時，進程不會阻塞，繼續執行事件的其他部分，然後進入事件循環處理其他事件。
+      </p>
+      <p>
+        異步I/O完成以後會以事件的形式加入事件隊列，等待進程以後進入事件循環時處理。
+      </p>
+      <p>I/O完成以後的邏輯通過<strong>回調函數</strong>描述</p>
+      <pre><code>db.query('SELECT * from some_table', function(res) {
+  res.output();
+});</code></pre>
+    </article>
+    
+    <article>
+      <h3>回調函數</h3>
+      <pre><code>db.query('SELECT * from some_table', function(res) {
+  res.output();
+});</code></pre>
+      <p>這段代碼又可以寫成：</p>
+      <pre><code>db.query('SELECT * from some_table', afterSelect);
+function afterSelect(res) {
+  res.output();
+});</code></pre>
+    </article>
+    
+    <article>
+      <h3>並發模型</h3>
+      <p>
+        阻塞模式下，一個進程只能處理一項任務，哪怕只有一個CPU核，要想提高吞吐量也必須通過多線程。
+      </p>
+      <p>
+        非阻塞模式下，進程對一個CPU核的利用率永遠是100%，單個線程即可達到單核心的最高吞吐量。
+      </p>
+      <p>
+        對於多核CPU，阻塞模式需要使用大量線程，而非阻塞模式只需要與CPU核心數目相等的線程即可達到最大利用率。
+      </p>
+    </article>
+    
+    <article>
+      <h3>阻塞式並發模型</h3>
+      <p>
+        <img class='centered' src="images/mthdsync.png" style="width:500px; align: center">
+      </p>
+    </article>
+    
+    <article>
+      <h3>非阻塞式並發模型</h3>
+      <p>
+        <img class='centered' src="images/sthdasync.png" style="width:350px">
+      </p>
+    </article>
+
+    <article>
+      <h3>並發模型特點</h3>
+      <table class="small">
+        <colgroup>
+        <col width="50%">
+        <col width="50%">
+        </colgroup>
+        <tr><th>阻塞I/O</th>
+        <th>非阻塞I/O</th>
+        </tr>
+        <tr><td>利用多線程提供吞吐量</td>
+        <td>單線程即單核最高吞吐量</td>
+        </tr>
+        <tr><td>通過時間片分割和線程調度利用多核</td>
+        <td>通過功能劃分利用多核</td>
+        </tr>
+        <tr><td>需要由操作系統調度多線程對多核 CPU 的使用</td>
+        <td>可以將單進程綁定到 CPU 單個核心</td>
+        </tr>
+        <tr><td>難以保證 CPU 高度利用</td>
+        <td>可以佔滿 CPU 資源</td>
+        </tr>
+        <tr><td>內存軌跡大，數據局部性弱</td>
+        <td>內存軌跡小，數據局部性強</td>
+        </tr>
+        <tr><td>符合線性編程思維，調試容易</td>
+        <td>需要狀態機設計思維，調試難</td>
+        </tr>
+      </table>
+    </article>
+
+    <article>
+      <h3>回調函數的陷阱</h3>
+      <p>使用回調函數的方法，很容易寫出這樣的代碼：</p>
+      <pre><code>function func(callback) {
+  fs.readFile('1.txt', 'utf-8', function (err, contents1) {
+    if (err) return callback(err);
+    fs.readFile('2.txt', 'utf-8', function (err, contents2) {
+      if (err) return callback(err);
+      fs.writeFile('3.txt', contents1 + contents2, function (err) {
+        if (err) return callback(err);
+        callback();
+      });
+    });
+  });
+}</code></pre>
+      <p>Callback Pyramids</p>
+    </article>
+
+    <article class="smaller">
+      <h3>更深的嵌套</h3>
+      <pre><code>var addUser = function(uid, callback) {
+  mongodb.open(function(err, db) {
+    if (err) {callback(err); return;}
+    db.collection('users', function(err, collection) {
+      if (err) {callback(err); return;}
+      collection.ensureIndex("uid", function(err) {
+        if (err) {callback(err); return;}
+        collection.ensureIndex("username", function(err) {
+          if (err) {callback(err); return;}
+          collection.findOne({uid: uid}, function(err) {
+            if (err) {callback(err); return;}
+            if (doc) {
+              callback(new Error('occupied'));
+            } else {
+              collection.insert({uid: uid}, function(err) {
+                callback(err);
+              });
+            }
+          });
+        });
+      });
+    });
+  });
+};
+</code></pre>
+    </article>
+
+    <article>
+      <h3>Continuation Passing Style</h3>
+      <p>這種通過回調函數進行顯式的控制流傳遞的代碼稱爲「<strong>Continuation Passing Style (CPS)</strong>」</p>
+      <p>CPS代碼通常使用嵌套的回調函數來組織，線性的邏輯被拆散到不同的回調函數中</p>
+      <p>然而，用CPS代碼來描述複雜的邏輯對人工來說，<strong>難寫、難調、難改</strong></p>
+      <h1>怎麼辦？</h1>
+    </article>
+
+    <article>
+      <h3>Continuation.js</h3>
+      <p>Continuation.js是一個通過編譯的手段，將嵌套的回調函數平面化的工具。
+        通過它你可以像寫同步I/O的代碼一樣產生CPS的代碼。</p>
+      <ul class="smaller">
+        <li>無任何運行時依賴，無額外語法</li>
+        <li>兼容Node.js和瀏覽器JavaScript</li>
+        <li>兼容已有的嵌套回調函數風格的代碼</li>
+        <li>默認使用JIT運行，同時支持AOT編譯</li>
+        <li>支持I/O並行化</li>
+      </ul>
+      <pre><code>$ npm install -g continuation</code></pre>
+    </article>
+
+    <article>
+      <h3>Continuation.js</h3>
+      <p>通過Continuation.js重寫前面的代碼：</p>
+      <pre><code>function func(next) {
+  try {
+    fs.readFile('1.txt', 'utf-8', obtain(contents1);
+    fs.readFile('2.txt', 'utf-8', obtain(contents2);
+    fs.writeFile('3.txt', contents1 + contents2, obtain());
+    next();
+  } catch (err) {
+    next(err);
+  }
+}</code></pre>
+    </article>
+
+    <article>
+      <h3>Continuation.js</h3>
+      <p>使用Continuation.js，你還可以輕易寫出用異步難以描述的邏輯：</p>
+      <pre><code>var fib = function () {
+  var a = 0, current = 1;
+  while (true) {
+    var b = a;
+    a = current;
+    current = a + b;
+    setTimeout(cont(), 1000);
+    console.log(current);
+  }
+};
+fib();</code></pre>
+      <p>以上代碼是計算Fibonacci數列，每秒輸出一項。</p>
+    </article>
+
+    <article class="smaller">
+      <h3>Node.js可以做什麼（第三方模塊）</h3>
+      <ul>
+        <li>Web框架：<code>express</code></li>
+        <li>HTML模板引擎：<code>jade</code></li>
+        <li>CSS模板引擎：<code>less</code></li>
+        <li>JavaScript壓縮：<code>uglify-js</code></li>
+        <li>WebSocket：<code>socket.io</code></li>
+        <li>SQL數據庫ORM：<code>sequelize</code></li>
+        <li>MongoDB ORM：<code>mongoose</code></li>
+        <li>OAuth：<code>node-oauth</code></li>
+        <li>自動編譯工具：<code>grunt</code></li>
+        <li>守護進程、日誌和故障恢復：<code>forever</code></li>
+        <li>自動化測試框架：<code>mocha</code></li>
+        <li>命令行解析工具：<code>commander</code></li>
+        <li>語法解析：<code>jison</code></li>
+        <li>基於WebInspector的調試器：<code>node-inspector</code></li>
+      </ul>
+    </article>
+    
+    <article class="smaller">
+      <h3>Node.js可以做什麼（第三方模塊）</h3>
+      <ul>
+        <li>文檔對象模型(DOM)處理：<code>jsdom</code></li>
+        <li>文件上傳：<code>formidable</code></li>
+        <li>Markdown解析：<code>marked</code></li>
+        <li>語法高亮：<code>highlight.js</code></li>
+        <li>本地圖形界面應用：<code>node-webkit</code></li>
+        <li>編碼轉換：<code>iconv-lite</code></li>
+        <li>圖像處理：<code>imagemagick</code></li>
+        <li>同步代碼變換：<code>continuation</code></li>
+        <li>異步函數庫：<code>async</code></li>
+        <li>輕量級線程、協程：<code>fibers</code></li>
+        <li>編譯到JavaScript：<code>coffee-script</code></li>
+        <li>遠程過程調用(RPC)：<code>dnode</code></li>
+        <li>瀏覽器端代碼生成：<code>browserify</code></li>
+        <li>JavaScript靜態分析和錯誤檢查：<code>jshint</code></li>
+      </ul>
+    </article>
+
+    <article class='fill'>
+      <h3>
+        The End
+      </h3>
+      <q>
+        謝謝大家
+      </q>
+      <div class='author'>
+        郭家寶
+      </div>
+      <h2>
+        <br>
+        <a href="http://www.byvoid.com">http://www.byvoid.com</a>
+      </h2>
+      <p>
+        <img src='images/main-bg.jpg'>
+      </p>
+    </article>
+  </section>
+</body>
+</html>
