@@ -1,0 +1,368 @@
+<!--
+BYVoid slides
+Derived from Google IO 2012/2013 HTML5 Slide Template
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="../theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="../theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="config" src="../js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="logoslide nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="bitcoin_bannar.png"></span>
+    </article>
+  </slide>
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="bitcoin_logo_1.png"></aside>
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+      <p>May 24, 2013</p>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>What is Bitcoin</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>A math-based currency without a central bank</li>
+        <li>Based on P2P techniques, totally decentralized</li>
+        <li>No inflation</li>
+        <li>Infinitely divisible</li>
+        <li>Born in 2009, created by Satoshi Nakamoto (中本 聰)</li>
+      </ul>
+      <aside style="float:right"><img src="bitcoin-cash.jpg"></aside>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Why do we need Bitcoin</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Credit money is not reliable</li>
+        <li>Governments are creating huge inflations to repay their debts</li>
+        <li>Everything is tracked and controlled by the authoritiy</li>
+      </ul>
+      <img src="US_Inflation.png" height="55%">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Must money issued by the government?</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>In the USA from 1837 to 1866, anyone can issue paper money</li>
+        <li>BerkShares: a local currency issued for the Berkshire region of Massachusetts by the BerkShares company.</li>
+        <li>Hayek: Denationalization of Money</li>
+      </ul>
+      <aside style="float:right"><img src="Delaware_Bridge_Company_Dollar.jpg"></aside>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>How is Bitcoin issued without a central bank</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Gold does not have to be issued by an issuer, only be dug by miners</li>
+        <li>Everyone can claim he found a Bitcoin as long as others accept</li>
+        <li>The problem is: why do I accept money you created?</li>
+      </ul>
+      <aside style="float:right"><img src="bitcoin-coin.jpg"></aside>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>What is the value of Bitcoin</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>
+          As a general equivalent, like gold, it is:
+          <ul>
+            <li>Easy to distinguish and measure</li>
+            <li>Hard to generate</li>
+            <li>Limited in a certain amount</li>
+            <li>Storable</li>
+            <li>Dividable</li>
+            <li>Tradable</li>
+          </ul>
+        </li>
+        <li>It has no difference with other commodity: the price is decided by the supply and the demand</li>
+        <li>
+          According to <a href="http://en.wikipedia.org/wiki/The_Theory_of_Money_and_Credit" target="_blank">Mises Regression Theorem</a>:
+          <ul>
+            <li>Today's value depends on yesterday's value</li>
+            <li>Till the first day it has value</li>
+          </ul>
+        </li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>How is Bitcoin running</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>
+          <span class="yellow3">How does a decentralized monetary system record the owner of every coin?</span>
+          <ul>
+            <li>It is simple and brutal: Every node in P2P network stores all transactions from the first day of Bitcoin's birth</li>
+            <li>Thus you can calculate out how much everyone has</li>
+          </ul>
+        </li>
+        <li>
+          <span class="green">How is the ownership of a Bitcoin transfered?</span>
+          <ul>
+            <li>An account is a pair of private key and public key.
+            <li>The public key is your address or accounts number.
+            <li>The private key proves your ownership,
+            <li>If Alice pays a certain amount of money to Bob, Alice should sign a message with her private key, which contains the last hash, Bob's public key and the amount of money she is going to transfer.
+            <li>There should be some guarantors that witness this transaction.
+            <li>Bob will not acknowledge this transaction until he knows this transaction indirectly from some other people.
+          </ul>
+        </li>
+      <ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>How is Bitcoin running</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>
+          <span class="red2">How are transactions recorded?</span>
+          <ul>
+            <li>We need a unique history of transactions, called <span class="green2">blockchain</span>.
+            <li>Blockchain is a chain of blocks. Every <span class="yellow2">block</span> contains some transactions with hashed signatures, and linked to the previous block.</li>
+            <li>The work of generating new blocks is called <span class="blue3">mining</span>, which is the process of packaging transactions into a block.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="green2">How to sign a transaction?</span>
+          <ul>
+            <li>It relys on a mechanism called "Proof of work" (<a href="http://en.wikipedia.org/wiki/Hashcash" target="_blank">Hashcash</a> Algorithm).
+            <li>You can add anything into a message (to be signed), as loog as the hash code of it meets some requirements.
+            <li>For example, the hash code is leading with a number of 0.
+            <li>It is proved that the best approach of solving this problem is exhaustive enumeration.
+          </ul>
+        </li>
+          </ul>
+        </li>
+      <ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>How is Bitcoin running</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>
+          <span class="yellow3">Who are creating blocks?</span>
+          <ul>
+            <li>Since creating new blocks costs a lot, there must be incentives.
+            <li>The solution is, the one who created a block will get some Bitcoin as reward: this is how Bitcoin created.
+            <li>Miners can also get trading fees spend by traders.
+            <li>Only the longest blockchain will be accepted.
+          </ul>
+        </li>
+        <li>
+          <span class="red2">How to set the difficulity and reward of mining?</span>
+          <ul>
+            <li>P2P network will tune the difficulity according to the computing power.
+            <li>The reward of mining every block is 50 at first and halves every 210000 blocks.
+          </ul>
+        </li>
+      <ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>The workflow of Bitcoin</h2>
+    </hgroup>
+    <article class="flexbox vcenter" style="margin-top:10px">
+      <img src="workflow.jpg" alt="Workflow of Bitcoin" title="Workflow of Bitcoin" height="110%">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Mining</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Mining is essential for Bitcoin system, no mining no transaction.
+        <li>Since more and more people are mining, the reward is getting lower.
+        <li>CPU -> GPU -> FPGA -> ASIC
+        <li>Big mining pools</li>
+      </ul>
+      <aside style="float:right"><img src="display_card_miner.jpg"></aside>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Nodes Distribution of Bitcoin Network</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <p>There are more nodes in China than USA</p>
+      <img src="nodes-map.png" alt="Description" title="Description">
+      <footer class="source">source: <a href="http://bitnodes.io/" target="_blank">http://bitnodes.io/</a></footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Economic features of Bitcoin</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Not freezable
+        <li>Very hard to track
+        <li>Trading cost is very low
+        <li>No Taxation
+        <li>In-born deflation</li>
+        <li>Global market</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Market Price of Bitcoin</h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <img src="price.png">
+      <footer class="source">source: blockchain.info</footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Criticisms</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Too many speculators
+        <li>Price fluctuation is too huge
+        <li>Hard to tax
+        <li>Anonymous trading
+        <li>Conducive to money laundering
+        <li>Arbitrage between markets is possible
+        <li>Attacts lots of system invaders
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Scalability issues</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>About $160 million costs in the last year (servers, electricity, labor), which means $11 per transaction!
+        <li>History of all transactions are too large: for now serveral Gigabytes.
+        <li>If it scales to as large as VISA, one block would be as large as 1GB.
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>P2P network's dilemma</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Protocol is not able to upgrade smoothly.
+        <li>Mining is more and more centralized, thus 51% attack is becoming possible.
+      </ul>
+      <img src="pools.png" height="60%">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Real World Bitcoin</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>You can buy and sell Bitcoin from exchanges with credit money
+        <li>The biggest one is <a href="https://mtgox.com/" target="_blank">MtGox</a>
+        <li><a href="https://blockchian.info/" target="_blank">Blockchian.info</a> provides an online wallet service.
+        <li><a href="https://www.bitinstant.com/" target="_blank">BitInstant</a> devotes in changing Bitcoin with offline money and goods.
+        <li><a href="https://bips.me/" target="_blank">BIPS</a> exchanges different kinds of virtual money.
+      </ul>
+      <img src="mtgox.png">
+      <img src="tradehill.jpg">
+      <img src="bips.png">
+      <img src="bitinstant.png">
+      <img src="blockchain.png">
+    </article>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="bitcoin_logo_1.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Any questions?</h2>
+    </hgroup>
+  </slide>
+
+  <slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="bitcoin_logo_1.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>Thank You!</h2>
+      <p>May 24 2013</p>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
+
+  <slide class="logoslide dark nobackground">
+    <article class="flexbox vcenter">
+      <a href="http://www.byvoid.com/"><img src="../images/byvoid500.png"></a>
+    </article>
+  </slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
