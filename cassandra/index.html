@@ -6,38 +6,38 @@
     </head>
     <body>
 
-<h1><a href="http://www.byvoid.com/blog/cassandra-intro/">Cassandra简介</a></h1>
+<h1><a href="https://byvoid.com/blog/cassandra-intro/">Cassandra简介</a></h1>
  <p>Cassandra是一个分布式的NoSQL数据库，它最大的特点就是完全去中心化，不像MySQL、MongoDB主从备份的模式，也不像HBase、HDFS有不同类型的节点。整个Cassandra集群就是一个由P2P协议组织起来的网络，消除了所有的单点故障。</p>
 
 <p>Cassandra可以认为是Amazon Dynamo和Google BigTable的结合体，它的分布式特性像Dynamo，数据模型像BigTable。最初它是由Facebook开发的，作为Facebook「收件箱」的存储，后来开源交给Apache维护了。现在产业界有许多公司在使用Cassandra，包括Twitter、Netflix等等，世界上最大的Cassandra集群有近千个节点，存储着超过200TB的数据。Cassandra集群的维护是我见过的所有分布式数据库中最方便的，增加、删除节点十分容易，适合横向扩展。Cassandra提供了可调的一致性级别，同时支持强一致性和弱一致性，数据备份的因子可以自由调节。Cassandra还支持跨数据中心的集群，每个数据中心存储一份完整的数据，以提供数据访问的局部性和容灾的要求。</p>
  <p>与大多数数据库为读优化不同，Cassandra的写性能理论上是高于读性能的，因此非常适合流式的数据存储，尤其是写负载高于读负载的。与HBase比起来，它的随机访问性能要高很多，但不是很擅长区间扫描，因此可以作为HBase的即时查询缓存，由HBase进行批量的大数据处理，由Cassandra提供随机查询的接口。</p>
 
-      <p><a href="http://www.byvoid.com/upload/fl/images/cassandra/page0001.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0001.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0002.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0002.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0003.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0003.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0004.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0004.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0005.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0005.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0006.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0006.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0007.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0007.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0008.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0008.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0009.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0009.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0010.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0010.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0011.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0011.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0012.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0012.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0013.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0013.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0014.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0014.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0015.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0015.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0016.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0016.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0017.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0017.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0018.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0018.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0019.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0019.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0020.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0020.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0021.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0021.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0022.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0022.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0023.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0023.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0024.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0024.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0025.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0025.jpg" alt="Cassandra" width="670" height="502"></a>
-      <a href="http://www.byvoid.com/upload/fl/images/cassandra/page0026.jpg"><img src="http://www.byvoid.com/upload/fl/images/cassandra/page0026.jpg" alt="Cassandra" width="670" height="502"></a>
+      <p><a href="https://byvoid.com/attachments/slides/cassandra/page0001.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0001.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0002.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0002.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0003.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0003.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0004.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0004.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0005.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0005.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0006.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0006.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0007.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0007.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0008.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0008.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0009.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0009.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0010.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0010.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0011.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0011.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0012.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0012.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0013.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0013.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0014.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0014.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0015.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0015.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0016.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0016.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0017.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0017.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0018.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0018.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0019.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0019.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0020.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0020.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0021.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0021.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0022.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0022.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0023.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0023.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0024.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0024.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0025.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0025.jpg" alt="Cassandra" width="670" height="502"></a>
+      <a href="https://byvoid.com/attachments/slides/cassandra/page0026.jpg"><img src="https://byvoid.com/attachments/slides/cassandra/page0026.jpg" alt="Cassandra" width="670" height="502"></a>
 
       </p>
       <iframe src="http://www.slideshare.net/slideshow/embed_code/13678579?rel=0" width="597" height="486" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen=""></iframe>

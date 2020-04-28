@@ -23,7 +23,7 @@ var SLIDE_CONFIG = {
     company: 'Tsinghua University',
     gplus: 'https://plus.google.com/112163558251413006250',
     twitter: '@byvoid',
-    www: 'http://www.byvoid.com',
+    www: 'https://byvoid.com',
     github: 'http://github.com/BYVoid'
   }/*, {
     name: 'Second Name',
